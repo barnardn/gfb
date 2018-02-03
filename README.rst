@@ -66,4 +66,4 @@ The configuratioon fill wll be created with owner read/write access and will
 warn you and refuse to run if group or world read access is enabled.
 
 The source for this project is available here
-<https://github.com/barnardn/gfb.git>.
+https://github.com/barnardn/gfb.git.
