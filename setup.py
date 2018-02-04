@@ -16,7 +16,7 @@ install_requires = requirements_from_pipfile()
 
 setup(
     name="gfb",
-    version="0.9b",
+    version="0.9b3",
     packages=[
         'gfb',
     ],

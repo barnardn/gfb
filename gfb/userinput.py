@@ -1,7 +1,8 @@
+import sys
 import readchar
 import typing
 
-def read_response(self, prompt: str=None) -> str:
+def read_response(prompt: str=None) -> str:
     """
     reads a single character response from the user
     params:
@@ -10,8 +11,7 @@ def read_response(self, prompt: str=None) -> str:
         the character read
     """
     if prompt:
-        sys.stdout.write(prompt)
-        sys.stdout.flush()
+        print(prompt, end='', flush=True)
     ch = readchar.readchar()
-    sys.stdout.write(ch)
+    print("{0}\n".format(ch))
     return ch

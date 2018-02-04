@@ -110,7 +110,7 @@ class SetupHelper:
         """ ask the user if they want to create a configuration file"""
         p = prompt + "\nDo you want to continue? [Yn] "
         ch = userinput.read_response(p)
-        return False if ch.lower() == 'n' else True
+        return False if ch.lower() != 'y' and ch != '\r' else True
 
     def setup_walkthrough(self) -> Config:
         msg = ("\nYour github credentials will be stored in '~/.gfbrc' and will"
@@ -150,9 +150,5 @@ class SetupHelper:
 
     def read_user_response(self, prompt: str=None) -> str:
         """ reads a single character response from the user """
-        if prompt:
-            sys.stdout.write(prompt)
-            sys.stdout.flush()
-        ch = readchar.readchar()
-        sys.stdout.write(ch)
+        ch = userinput.read_response(prompt)
         return ch.lower()

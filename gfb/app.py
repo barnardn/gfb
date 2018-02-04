@@ -3,7 +3,6 @@ import os
 import sys
 import typing
 import argparse
-import pdb
 from gfb import configuration, git
 
 
@@ -18,8 +17,8 @@ def startup_error(e: Exception,
         return
     config = helper.setup_walkthrough()
     prompt = 'Would you like to test your configuration? '
-    do_test = helper.read_user_response(prompt)
-    if do_test:
+    response = helper.read_user_response(prompt)
+    if response == 'y':
         test_ok = helper.check_configuration(config)
         if not test_ok:
             print("Invalid credentials - configuration not saved.")
@@ -65,6 +64,9 @@ def run_setup_if_requested(argv):
         if argv[1] == '--setup':
             startup_error(None, 'Creating a new configuration file.')
             sys.exit(0)
+        if argv[1] == '--version':
+            print("0.9b3")
+            sys.exit(0)
 
 def setup_argparse() -> argparse.ArgumentParser:
     """ configure and return our argparser """
@@ -78,6 +80,9 @@ def setup_argparse() -> argparse.ArgumentParser:
                       help='create a new default configuration file',
                       action='store_true')
     args.add_argument('regex', help='branch regular expression')
+    args.add_argument('--version',
+                      help='display the current version and exit')
+
     return args
 
 
