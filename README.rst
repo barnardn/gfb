@@ -7,6 +7,19 @@ standard Python regular expression pattern. If the search is started
 from within a directory that's part of a local ``git`` repository, the
 user is presented with the option to check out the matching branch. 
 
+Installation
+------------
+
+::
+    pip install gfb
+
+Depending on your local python environment, you may need to specify the 
+python3 version of pip: 
+
+::
+    pip3 install gfb
+
+
 Basic Usage
 -----------
 
@@ -67,3 +80,17 @@ warn you and refuse to run if group or world read access is enabled.
 
 The source for this project is available here
 https://github.com/barnardn/gfb.git.
+
+Troubleshooting
+---------------
+
+If you've installed ``gfb`` on macOS sierra or greater and are running Python 3.6,
+you'll need to install the SSL certificates for the SSL libraries that are
+baked into python. To do so:
+
+:: 
+    cd /Applications/Python\ 3.6/
+    ./Install\ Certificates.command
+
+Change into the Python 3.6 directory in Applications and run the 
+``Install Certficiates.command`` script.
