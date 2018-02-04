@@ -86,9 +86,8 @@ Troubleshooting
 
 If you've installed ``gfb`` on macOS sierra or greater and are running Python 3.6,
 you'll need to install the SSL certificates for the SSL libraries that are
-baked into python. To do so:
+baked into python. To do so:: 
 
-:: 
     cd /Applications/Python\ 3.6/
     ./Install\ Certificates.command
 
