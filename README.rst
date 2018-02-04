@@ -11,12 +11,14 @@ Installation
 ------------
 
 ::
+
     pip install gfb
 
 Depending on your local python environment, you may need to specify the 
 python3 version of pip: 
 
 ::
+
     pip3 install gfb
 
 
