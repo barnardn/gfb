@@ -39,7 +39,7 @@ class Config:
     """configuation class for the app. reponsible for reading the gfb
     configuration file and helping the user wtih first time setup"""
 
-    def __init__(self, username: str = None, pwd: str = None, api_key: str = None):
+    def __init__(self, username: str=None, pwd: str=None, api_key: str=None):
         self.username = username
         self.password = pwd
         self.api_key = api_key
@@ -49,7 +49,6 @@ class Config:
         """
         if not os.path.exists(config_path):
             raise MissingConfigError(config_path)
-        # ok = self.__valid_chmod(config_path)
         if not self.__valid_chmod(config_path):
             msg_fmt = ("Aborting. {0} is readable by too many people. "
                        "Fix with 'chmod 600 {0}'")
@@ -127,8 +126,8 @@ class SetupHelper:
             api_key = input("\nEnter your api key: ")
             config = Config(api_key=api_key)
         else:
-            uname = input("\nUsername: ")
-            pwd = getpass.getpass("\nPassword: ")
+            uname = userinput.prompt("\nUsername: ")
+            pwd = userinput.prompt("\nPassword: ", secure=True)
             config = Config(username=uname, pwd=pwd)
         config.save(self.config_path)
         os.chmod(self.config_path, 0o600)
