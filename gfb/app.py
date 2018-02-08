@@ -65,7 +65,7 @@ def run_setup_if_requested(argv):
             startup_error(None, 'Creating a new configuration file.')
             sys.exit(0)
         if argv[1] == '--version':
-            print("0.9b3")
+            print("0.9b4")
             sys.exit(0)
 
 def setup_argparse() -> argparse.ArgumentParser:
