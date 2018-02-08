@@ -6,7 +6,7 @@ import argparse
 from gfb import configuration, git
 
 
-def startup_error(e: Exception,
+def startup_error(e: configuration.ConfigError,
                   prompt='Configuration file is missing or corrupt.'):
     if e:
         print(e.message)
@@ -99,6 +99,7 @@ def main():
     except (configuration.MissingConfigError,
             configuration.InvalidConfigError) as e:
         startup_error(e)
+        sys.exit(0)
     except configuration.BadConfigPermsError as e:
         print(e.message)
         sys.exit(1)
