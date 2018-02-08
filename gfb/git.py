@@ -8,6 +8,7 @@ import github
 import urllib
 import configparser
 import subprocess
+from gfb import userinput
 from datetime import datetime
 from github import Github
 
@@ -183,7 +184,7 @@ class BranchSelector:
 
         prompt = "Enter the branch number to checkout or 'X' to exit: "
         while True:
-            response = input(prompt)
+            response = userinput.prompt(prompt=prompt)
             if response.lower() == 'x':
                 return None
             try:
