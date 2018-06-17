@@ -4,7 +4,7 @@ import sys
 import typing
 import argparse
 from gfb import configuration, git
-
+from gfb._version import __version__
 
 def startup_error(e: configuration.ConfigError,
                   prompt='Configuration file is missing or corrupt.'):
@@ -64,9 +64,6 @@ def run_setup_if_requested(argv):
         if argv[1] == '--setup':
             startup_error(None, 'Creating a new configuration file.')
             sys.exit(0)
-        if argv[1] == '--version':
-            print("0.9b4")
-            sys.exit(0)
 
 def setup_argparse() -> argparse.ArgumentParser:
     """ configure and return our argparser """
@@ -80,8 +77,8 @@ def setup_argparse() -> argparse.ArgumentParser:
                       help='create a new default configuration file',
                       action='store_true')
     args.add_argument('regex', help='branch regular expression')
-    args.add_argument('--version',
-                      help='display the current version and exit')
+    args.add_argument('--version', action='version',
+                      version='%(prog)s '+__version__)
 
     return args
 

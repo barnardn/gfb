@@ -1,7 +1,7 @@
 import os
 from setuptools import setup
 import json
-
+from gfb._version import __version__
 
 def requirements_from_pipfile(pipfile=None):
     if pipfile is None:
@@ -16,7 +16,7 @@ install_requires = requirements_from_pipfile()
 
 setup(
     name="gfb",
-    version="0.9b4",
+    version=__version__,
     packages=[
         'gfb',
     ],
